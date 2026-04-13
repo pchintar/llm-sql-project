@@ -66,4 +66,4 @@ pytest -v
 ```bash
 pytest test_llm_failure.py -v -s
 ```
-LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with "Column 'age' not found". See `test_llm_failure.py`.
+LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with the msg `no such column: age`. See `test_llm_failure.py`.
