@@ -1,4 +1,4 @@
-# LLM SQL Project
+# LLM SQL Project - Building Data Systems with LLM Interfaces
 
 ## Overview
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
