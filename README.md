@@ -57,10 +57,10 @@ pytest -v
 
 - **Test 3 (test_schema.py)** - Get schema of table 'users' → returns [{'name':'id'}, {'name':'name'}]
 
-- **Test 4 (test_schema.py)** - Table existence check → 'users' exists (True), 'fake' does not (False)
+- **Test 4 (test_schema.py)** - Table existence check → 'users' exists (True), 'fake' does not exist (False)
 
 ## LLM Failure Case
-When LLM generates wrong column (e.g., `age` instead of `years`), validator catches and rejects it. See `test_llm_failure.py`.
+LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with "Column 'age' not found". See `test_llm_failure.py`.
 ```bash
 pytest test_llm_failure.py -v -s
 ```
