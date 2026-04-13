@@ -60,7 +60,7 @@ pytest -v
 - **Test 4 (test_schema.py)** - Table existence check → 'users' exists (True), 'fake' does not exist (False)
 
 ## LLM Failure Case
-LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with "Column 'age' not found". See `test_llm_failure.py`.
 ```bash
 pytest test_llm_failure.py -v -s
 ```
+LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with "Column 'age' not found". See `test_llm_failure.py`.
