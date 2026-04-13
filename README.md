@@ -17,6 +17,10 @@ Load CSV into SQLite, query with natural language. LLM converts questions to SQL
 CLI → Query Service → LLM Adapter → Validator → SQLite
 ```
 
+## Requirements
+- Python 3.8+
+- Groq API key (free at console.groq.com[https://console.groq.com/keys]), mock mode works without the api key
+
 ## Setup
 ```bash
 python3 -m venv venv
@@ -50,8 +54,6 @@ pytest -v
 
 ## LLM Failure Case
 When LLM generates wrong column (e.g., `age` instead of `years`), validator catches and rejects it. See `test_llm_failure.py`.
-
-## Requirements
-- Python 3.8+
-- Groq API key (free at console.groq.com), mock mode works without the api key
+```bash
+pytest test_llm_failure.py -v -s
 ```
