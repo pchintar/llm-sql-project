@@ -35,11 +35,6 @@ python cli.py
 ```
 
 ## Commands
-- `load <csv_path> <table_name>`
-- `ask <table_name> <question>`
-- `exit`
-
-## Commands
 
 | Command | Example | What it does |
 |---------|---------|---------------|
