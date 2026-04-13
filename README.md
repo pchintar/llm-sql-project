@@ -6,7 +6,7 @@ Load CSV into SQLite, query with natural language. LLM converts questions to SQL
 ```
 ```
 ## Architecture
-
+```
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
 - **Schema Manager** (`schema.py`) - Provides table/column info
 - **LLM Adapter** (`llm.py`) - Converts natural language to SQL (Groq API)
