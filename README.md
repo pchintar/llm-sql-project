@@ -61,7 +61,6 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
                                                       | Query Service        |
                                                       | (service.py)         |
                                                       +----------+-----------+
-                                                                 |
                                                                  | returns output
                                                                  v
 ```
