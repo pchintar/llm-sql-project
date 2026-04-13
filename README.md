@@ -1,10 +1,8 @@
 # LLM SQL Project
-```
-```
+
 ## Overview
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
-```
-```
+
 ## Architecture
 
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
