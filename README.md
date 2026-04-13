@@ -76,10 +76,10 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
 
 ## Flow
 ```
-**Data Ingestion:**
+Data Ingestion:
 CLI → CSV Loader → SQLite Database
 
-**Query Processing:**
+Query Processing:
 CLI → Query Service → LLM Adapter → Validator → SQLite Database → Query Service → CLI
 ```
 ## Requirements
