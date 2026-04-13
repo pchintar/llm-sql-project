@@ -2,6 +2,7 @@
 
 ## Overview
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
+Presentation Video link: https://drive.google.com/file/d/1nrRLS3AANLcKEPNRQY-gtO6DQ3xx2D8E/view?usp=sharing
 
 ## Architecture
 ```text
