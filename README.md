@@ -124,8 +124,12 @@ pytest -v
 
 - **Test 4 (test_schema.py)** - Table existence check → 'users' exists (True), 'fake' does not exist (False)
 
-## LLM Failure Case
+## LLM Failure Test
 ```bash
 pytest test_llm_failure.py -v -s
 ```
 LLM generates "SELECT * FROM people WHERE age > 25" but table has `years`, not `age` → validator catches and rejects it with the msg `no such column: age`. See `test_llm_failure.py`.
+
+## Limitations
+- Validator checks column names but doesn't parse for complex SQL (joins, subqueries)
+- Schema matching uses column names only; type mismatches may cause errors
