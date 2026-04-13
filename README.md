@@ -19,7 +19,7 @@ CLI → Query Service → LLM Adapter → Validator → SQLite
 
 ## Requirements
 - Python 3.8+
-- Groq API key (free at https://console.groq.com/keys , mock mode works without the api key
+- Groq API key (free at https://console.groq.com/keys , mock mode works without the api key)
 
 ## Setup
 ```bash
