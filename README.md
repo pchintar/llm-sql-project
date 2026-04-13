@@ -4,6 +4,7 @@
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
 
 ## Architecture
+```text
 +----------------------+
 |        User          |
 +----------+-----------+
@@ -67,6 +68,7 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
                                                       | CLI Interface        |
                                                       | (cli.py)             |
                                                       +----------------------+
+```
 
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
 - **Schema Manager** (`schema.py`) - Provides table/column info
