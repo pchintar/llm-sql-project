@@ -76,9 +76,12 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
 
 ## Flow
 ```
-CLI → Query Service → LLM Adapter → Validator → SQLite
-```
+**Data Ingestion:**
+CLI → CSV Loader → SQLite Database
 
+**Query Processing:**
+CLI → Query Service → LLM Adapter → Validator → SQLite Database → Query Service → CLI
+```
 ## Requirements
 - Python 3.8+
 - Groq API key (free at https://console.groq.com/keys , mock mode works without the api key)
