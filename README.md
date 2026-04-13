@@ -1,17 +1,18 @@
 ```markdown
 # LLM SQL Project
-
+```
 ## Overview
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
-
+```
 ## Architecture
+
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
 - **Schema Manager** (`schema.py`) - Provides table/column info
 - **LLM Adapter** (`llm.py`) - Converts natural language to SQL (Groq API)
 - **Validator** (`validator.py`) - Only allows SELECT, checks tables/columns exist
 - **Query Service** (`service.py`) - Orchestrates query flow
 - **CLI** (`cli.py`) - User interface, no direct DB access
-
+```
 ## Flow
 ```
 CLI → Query Service → LLM Adapter → Validator → SQLite
