@@ -64,10 +64,6 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
                                                                  |
                                                                  | returns output
                                                                  v
-                                                      +----------------------+
-                                                      | CLI Interface        |
-                                                      | (cli.py)             |
-                                                      +----------------------+
 ```
 
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
