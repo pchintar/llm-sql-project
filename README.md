@@ -1,4 +1,3 @@
-```markdown
 # LLM SQL Project
 ```
 ## Overview
