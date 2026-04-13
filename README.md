@@ -39,6 +39,14 @@ python cli.py
 - `ask <table_name> <question>`
 - `exit`
 
+## Commands
+
+| Command | Example | What it does |
+|---------|---------|---------------|
+| `load <csv_path> <table_name>` | `load data.csv users` | Loads CSV into SQLite table |
+| `ask <table_name> <question>` | `ask users show all rows` | Converts question to SQL and runs it |
+| `exit` | `exit` | Quits the program |
+
 ## Example
 ```
 > load test.csv people
