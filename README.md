@@ -1,7 +1,9 @@
 # LLM SQL Project
 ```
+```
 ## Overview
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
+```
 ```
 ## Architecture
 
