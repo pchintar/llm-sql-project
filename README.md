@@ -4,30 +4,69 @@
 Load CSV into SQLite, query with natural language. LLM converts questions to SQL, validator ensures safety.
 
 ## Architecture
-```mermaid
-flowchart LR
-    User --> CLI
++----------------------+
+|        User          |
++----------+-----------+
+           |
+           v
++----------------------+
+| CLI Interface        |
+| (cli.py)             |
++----------+-----------+
+           |
+           +--------------------------------------------------+
+           |                                                  |
+           v                                                  v
 
-    CLI -->|load CSV| Loader
-    Loader -->|store data| DB
-    Loader -->|update schema| Schema
+DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
+-------------------                                  ---------------------
 
-    CLI -->|ask question| Service
-    Service -->|get schema| Schema
-    Service -->|generate SQL| LLM
-    LLM -->|SQL query| Validator
-    Validator -->|validated query| DB
-    DB -->|results| Service
-    Service -->|output| CLI
-
-    Loader[CSV Loader]
-    Schema[Schema Manager]
-    LLM[LLM Adapter]
-    Validator[Validator]
-    Service[Query Service]
-    CLI[CLI Interface]
-    DB[(SQLite Database)]
-```
++----------------------+                             +----------------------+
+| CSV Loader           |                             | Query Service        |
+| (db_setup_loader.py) |                             | (service.py)         |
++----------+-----------+                             +----------+-----------+
+           |                                                    |
+           | uses schema info if table exists                   | gets schema info
+           v                                                    v
++----------------------+                             +----------------------+
+| Schema Manager       |                             | Schema Manager       |
+| (schema.py)          |                             | (schema.py)          |
++----------+-----------+                             +----------+-----------+
+           |                                                    |
+           | supports create / append / rename                  | provides table/column info
+           v                                                    v
++----------------------+                             +----------------------+
+| SQLite Database      |                             | LLM Adapter          |
+| (data.db)            |                             | (llm.py)             |
++----------------------+                             +----------+-----------+
+                                                                 |
+                                                                 | generates SQL
+                                                                 v
+                                                      +----------------------+
+                                                      | Validator            |
+                                                      | (validator.py)       |
+                                                      +----------+-----------+
+                                                                 |
+                                                                 | validates query
+                                                                 v
+                                                      +----------------------+
+                                                      | SQLite Database      |
+                                                      | (data.db)            |
+                                                      +----------+-----------+
+                                                                 |
+                                                                 | returns results
+                                                                 v
+                                                      +----------------------+
+                                                      | Query Service        |
+                                                      | (service.py)         |
+                                                      +----------+-----------+
+                                                                 |
+                                                                 | returns output
+                                                                 v
+                                                      +----------------------+
+                                                      | CLI Interface        |
+                                                      | (cli.py)             |
+                                                      +----------------------+
 
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
 - **Schema Manager** (`schema.py`) - Provides table/column info
