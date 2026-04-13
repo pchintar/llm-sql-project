@@ -66,11 +66,13 @@ DATA INGESTION FLOW                                  QUERY PROCESSING FLOW
 ```
 
 - **CSV Loader** (`db_setup_loader.py`) - Loads CSV, creates tables, handles schema conflicts
-- **Schema Manager** (`schema.py`) - Provides table/column info
+- **Schema Manager** (`schema.py`) - Provides table/column info from data.db
 - **LLM Adapter** (`llm.py`) - Converts natural language to SQL (Groq API)
-- **Validator** (`validator.py`) - Only allows SELECT, checks tables/columns exist
+- **Validator** (`validator.py`) - Only allows SELECT, checks tables/columns exist in data.db
 - **Query Service** (`service.py`) - Orchestrates query flow
 - **CLI** (`cli.py`) - User interface, no direct DB access
+- **SQLite Database** (`data.db`) - Stores all tables and data
+- **Error Log** (`error_log.txt`) - Logs all validation errors
 
 ## Flow
 ```
