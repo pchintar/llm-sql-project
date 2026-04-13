@@ -51,6 +51,13 @@ Results: [(1, 'Alice', 30), (2, 'Bob', 25)]
 ```bash
 pytest -v
 ```
+- **Test 1 (test_validator.py)** - Valid query "SELECT * FROM users" → returns data successfully
+
+- **Test 2 (test_validator.py)** - Invalid query "DELETE FROM users" → rejected, error: "Only SELECT allowed"
+
+- **Test 3 (test_schema.py)** - Get schema of table 'users' → returns [{'name':'id'}, {'name':'name'}]
+
+- **Test 4 (test_schema.py)** - Table existence check → 'users' exists (True), 'fake' does not (False)
 
 ## LLM Failure Case
 When LLM generates wrong column (e.g., `age` instead of `years`), validator catches and rejects it. See `test_llm_failure.py`.
