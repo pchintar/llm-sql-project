@@ -85,6 +85,8 @@ CLI → Query Service → LLM Adapter → Validator → SQLite
 
 ## Setup
 ```bash
+git clone https://github.com/pchintar/llm-sql-project.git
+cd llm-sql-project
 python3 -m venv venv
 source venv/bin/activate
 pip install pandas httpx pytest
